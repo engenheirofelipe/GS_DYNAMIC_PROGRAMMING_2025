@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Designar Equipe à Ocorrência</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext x='0' y='30' font-size='30'%3E⚠️%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+<div class="sidebar active" id="sidebar">
+    <a href="/home">Home</a>
+    <a href="/carregar_chamadas">Carregar Chamadas</a>
+    <a href="/visualizar_prioridades">Visualizar Prioridades</a>
+    <a href="/equipes">Gerenciar Equipe</a>
+    <a href="/designar_equipes">Designar Equipe</a>
+    <a href="/atender">Atender Ocorrência</a>
+
+</div>
+
+<div class="page-content">
+    <h1>Designar Equipe à Ocorrência</h1>
+
+    <form method="POST">
+        <label for="id_ocorrencia">Escolha a Ocorrência:</label>
+        <select name="id_ocorrencia" id="id_ocorrencia" required>
+            {% for chamada in chamadas %}
+                <option value="{{ chamada.id }}">
+                    ID {{ chamada.id }} - {{ chamada.local }}
+                    {% if chamada.equipe_designada %}
+                        (Equipe: {{ chamada.equipe_designada }})
+                    {% endif %}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="id_equipe">Escolha a Equipe:</label>
+        <select name="id_equipe" id="id_equipe" required>
+            {% for equipe in equipes %}
+                <option value="{{ equipe.id }}">{{ equipe.nome }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Designar Equipe</button>
+    </form>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

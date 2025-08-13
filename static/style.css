@@ -1,0 +1,281 @@
+/* Reset e base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Ícone do menu */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #e53935;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* Menu lateral */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #e53935;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+    padding-top: 60px;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.sidebar a {
+    display: flex;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background-color: #b71c1c;
+}
+
+/* Quando ativo, abre o menu */
+.sidebar.active {
+    width: 250px;
+}
+
+/* Conteúdo principal */
+.main-content {
+    margin-left: 0;
+    padding: 60px 20px;
+    text-align: center;
+    display: block;
+}
+
+h1, h2 {
+    color: #c62828;
+    font-size: 28px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo comum para listas e itens */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+li {
+    background-color: #fff;
+    margin: 10px;
+    padding: 12px 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Botão de voltar */
+.button a {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #b71c1c;
+}
+
+/* Reuso para todas as páginas */
+.page-content {
+    padding: 20px;
+    margin: auto;
+    max-width: 900px;
+    text-align: left;
+}
+
+/* Atendimento */
+p {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Estilos para formulários */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #b71c1c;
+}
+
+/* Título das listas de equipes ou ocorrências */
+h2 {
+    font-size: 22px;
+    margin-top: 30px;
+    color: #b71c1c;
+}
+
+/* Lista de equipes ou ocorrências */
+ul li {
+    font-size: 16px;
+    color: #333;
+    border-left: 4px solid #e53935;
+}
+
+/* Dashboard cards home*/
+
+.main-content {
+            padding: 20px;
+            background-color: rgb(235, 227, 227);
+            transition: margin-left 0.3s
+        }
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.card {
+    flex: 1 1 200px;;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card.active { background-color: #fd3737; color: white; }
+.card.in-progress { background-color: #feca57; color: white; }
+.card.completed { background-color: #1dd1a1; color: white; }
+.card.teams { background-color: #54a0ff; color: white; }
+
+canvas {
+    max-width: 500px;
+    margin: auto;
+    display: block;
+    }
+
+
+@media (max-width: 1023) and (min-width: 768px){
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar a{
+        padding-left: 15%;
+        font-size: 14px;
+    }
+
+    .sidebar.active {
+        width: 100px;
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .dashboard-cards {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 767px){
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar a{
+        padding-left: 15%;
+        font-size: 14px;
+    }
+
+    .sidebar.active {
+        width: 100px;
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .dashboard-cards {
+        flex-direction: column;
+    }
+
+    .page-content {
+    padding: 15px;
+    margin: auto;
+    max-width: 400px;
+    text-align: left;
+}
+}
